@@ -1,2 +1,4 @@
 # fitness
- fitness app backend-2024
+
+fitness app backend-2024
+cd
