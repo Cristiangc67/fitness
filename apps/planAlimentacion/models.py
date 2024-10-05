@@ -7,3 +7,10 @@ class PlanAlimentacion(models.Model):
     createdDate = models.DateTimeField(auto_now_add=True)
     modificatedDate = models.DateTimeField(auto_now_add=True)
     deleteDate = models.DateTimeField(auto_now_add=True)
+
+
+# un cliente puede tener un solo plan de alimentacion y un plan de alimentacion
+# deberia tener varios usuarios si incluimos client aca tenemos que definir
+# un plan de alimentacion diferente para cada cliente.
+
+# Talvez deberiamos agregar un nombre para plan
