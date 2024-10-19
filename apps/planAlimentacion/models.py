@@ -3,10 +3,11 @@ from django.db import models
 
 # Create your models here.
 class PlanAlimentacion(models.Model):
-    client = models.ForeignKey("cliente.Cliente", on_delete=models.CASCADE)
-    createdDate = models.DateTimeField(auto_now_add=True)
-    modificatedDate = models.DateTimeField(auto_now_add=True)
-    deleteDate = models.DateTimeField(auto_now_add=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    modificated = models.DateTimeField(auto_now_add=True)
+    delete = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=200, null=True, blank=True)
 
 
 # un cliente puede tener un solo plan de alimentacion y un plan de alimentacion
