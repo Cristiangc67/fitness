@@ -4,6 +4,6 @@ from apps.usuario.models import Usuario
 
 # Create your models here.
 class Medico(Usuario):
-    licenseNumber = models.IntegerField(max_length=6)
+    license_number = models.IntegerField()
     specialty = models.CharField(max_length=100)
-    previousExperience = models.CharField(max_length=500)
+    previous_experience = models.CharField(max_length=500)
