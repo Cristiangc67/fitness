@@ -9,11 +9,11 @@
     <h2>INICIO</h2>
     <ul>
       <li><a href={% url 'Home' %} >inicio</a></li>
-      <li><a   >sobre nosotros</a></li>
-      <li><a >Ingresar</a></li>
+      <li><a href={% url 'About' %}  >sobre nosotros</a></li>
+      <li><a href={% url 'Login' %} >Ingresar</a></li>
     
     </ul>
 
-    {% block content %}{%endblock%}
+    {% block content %}    {%endblock%}
   </body>
 </html>

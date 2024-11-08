@@ -15,11 +15,10 @@ class Conversacion(models.Model):
         "usuario.Usuario",
         on_delete=models.CASCADE,
         related_name="conversaciones_created_by",
-        default=None,
     )
     created = models.DateTimeField(auto_now_add=True)
-    modificated = models.DateTimeField(default=None)
-    delete = models.DateTimeField(default=None)
+    modificated = models.DateTimeField(null=True, blank=True)
+    delete = models.DateTimeField(null=True, blank=True)
 
 
 class Mensaje(models.Model):
@@ -29,5 +28,5 @@ class Mensaje(models.Model):
     message = models.CharField(max_length=2000)
     sender = models.ForeignKey("usuario.Usuario", on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
-    modificated = models.DateTimeField(default=None)
-    delete = models.DateTimeField(default=None)
+    modificated = models.DateTimeField(auto_now=True)
+    delete = models.DateTimeField(null=True, blank=True)
