@@ -3,7 +3,6 @@ from django.db import models
 
 # Create your models here.
 class PlanAlimentacion(models.Model):
-
     created = models.DateTimeField(auto_now_add=True)
     modificated = models.DateTimeField(auto_now_add=True)
     delete = models.DateTimeField(auto_now_add=True)

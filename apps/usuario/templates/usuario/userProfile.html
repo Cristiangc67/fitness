@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}{% load static %} {% block content %}
+<section class="profileUser">
+  <div class="profile-details">
+    <div class="banner-background"></div>
+    <div class="user-infocontainer">
+      <div class="user-iconcontainer">
+        <img
+          src="{% static 'images/usericon-blue.png'%}"
+          class="user-icon"
+          alt=""
+        />
+      </div>
+      <div class="user-namescontainer">
+        <h2 class="user-fullname">Pedro Pascal</h2>
+        <h4 class="user-username">{{user.username}}</h4>
+      </div>
+      <a class="button-pacients" href="#">Lista de Pacientes</a>
+    </div>
+
+    <div class="user-cardscontainer">
+      <div class="card-wh">
+        <img
+          src="{% static 'images/height.png' %}"
+          class="img-responsive"
+          alt=""
+        />
+        <p>192cm</p>
+      </div>
+      <div class="card-wh">
+        <img
+          src="{% static 'images/weight-scale.png' %}"
+          class="img-responsive"
+          alt=""
+        />
+        <p>90kg</p>
+      </div>
+      <div class="card-wh">
+        <p>vegetariano</p>
+        <p>hipertension</p>
+        <p>diabetico</p>
+      </div>
+    </div>
+    <div class="card-other">
+      <h3>Otros</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque
+        obcaecati voluptatem minus consequatur a totam accusantium corrupti non
+        fuga consequuntur doloribus enim velit, accusamus sapiente sunt soluta
+        nesciunt vel?
+      </p>
+    </div>
+  </div>
+
+  <!-- <h1>Perfil de {{ user.username }}</h1>
+  <p>Email: {{ user.email }}</p>
+
+  {% if user.cliente %}
+  <p>Peso: {{ user.cliente.weight }}</p>
+  <p>Altura: {{ user.cliente.height }}</p>
+
+  {% elif user.medico %}
+  <p>Licencia: {{ user.medico.licenseNumber }}</p>
+  <p>Especialidad: {{ user.medico.specialty }}</p>
+
+  {% endif %} -->
+</section>
+{%endblock%}

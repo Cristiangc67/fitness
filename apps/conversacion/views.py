@@ -1,10 +1,11 @@
 from django.views.generic import TemplateView
 from .models import Conversacion, Mensaje
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
-class ChatTest(TemplateView):
+class ChatTest(LoginRequiredMixin, TemplateView):
     template_name = "conversacion/test.html"
 
     def get_context_data(self, **kwargs):
