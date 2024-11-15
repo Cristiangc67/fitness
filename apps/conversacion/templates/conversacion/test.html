@@ -1,49 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>chat!</h1>
-    <form id="form" action="">
-      <input type="text" name="message" />
-    </form>
-    <div id="messages">
-      {% for msg in messages %}
-      <div>
-        <strong>{{ msg.sender.username }}</strong>: {{ msg.message }}
+{% extends "main/base.html" %} {% load static %} {% block content %}
+<section class=" chat margin-top">
+  {% if user_logged_in_id == conversation.client_id %}
+  <h1>{{doctor.name}} {{doctor.last_name}}</h1>
+  {% elif user_logged_in_id == conversation.doctor_id %}
+  <h1>{{client.name}} {{client.last_name}}</h1>
+  {% endif %}
+
+  <div id="messages" class="messages-container cyan">
+    {% for msg in messages %}
+    <div
+      class="message-container {% if msg.sender.id == user.id %} sender {% elif msg.sender.id != user.id %} receiver {% endif %}">
+      <div
+        class="message {% if msg.sender.id == user.id %} message-sender {% elif msg.sender.id != user.id %} message-receiver {% endif %}">
+        <strong>{{ msg.sender.username }}</strong>
+        <p>{{ msg.message }}</p>
         ({{msg.created }})
       </div>
-      {% endfor %}
     </div>
-    <script type="text/javascript">
-      const roomName = "{{ room_name }}";
-      let url = `ws://${window.location.host}/ws/chat/${roomName}/`;
-      const chatSocket = new WebSocket(url);
-      chatSocket.onmessage = function (e) {
-        let data = JSON.parse(e.data);
-        console.log("Data:", data);
-        if (data.type === "chat") {
-          let messages = document.getElementById("messages");
-          messages.insertAdjacentHTML(
-            "beforeend",
-            `<div><p>${data.message}</p></div>`
-          );
-        }
-      };
-      let form = document.getElementById("form");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let message = e.target.message.value;
-        chatSocket.send(
-          JSON.stringify({
-            message: message,
-          })
-        );
-        form.reset();
-      });
-    </script>
-  </body>
-</html>
+    {% endfor %}
+  </div>
+  <form id="form" action="">
+    <input type="text" name="message" />
+  </form>
+
+</section>
+<script>
+  const roomName = "{{ room_name }}";
+  const sender = "{{msg.sender.id}}"
+  const user_id = "{{user.id}}"
+</script>
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

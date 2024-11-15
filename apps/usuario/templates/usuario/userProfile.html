@@ -4,34 +4,31 @@
     <div class="banner-background"></div>
     <div class="user-infocontainer">
       <div class="user-iconcontainer">
-        <img
-          src="{% static 'images/usericon-blue.png'%}"
-          class="user-icon"
-          alt=""
-        />
+        <img {% if profile_user.medico %} src="{% static 'images/usericon-blue.png'%}" {% elif profile_user.cliente %}
+          src="{% static 'images/usericon-green.png'%}" {%endif %} class="user-icon" alt="" />
       </div>
       <div class="user-namescontainer">
-        <h2 class="user-fullname">Pedro Pascal</h2>
-        <h4 class="user-username">{{user.username}}</h4>
+        <h2 class="user-fullname">{{profile_user.name}} {{profile_user.last_name}}</h2>
+        <h4 class="user-username">{{profile_user.username}}</h4>
+        <p> {{profile_user.email}}</p>
       </div>
-      <a class="button-pacients" href="#">Lista de Pacientes</a>
-    </div>
 
+      {% if user_logged_in.id == profile_user.id %}
+      {%if profile_user.medico %}
+
+      <a class="button-pacients" href="#">Lista de Pacientes</a>
+      {% endif %}
+      <a class="button-pacients" href={% url 'editar_perfil' user.id %}>editar perfil</a>
+      {% endif %}
+    </div>
+    {%if profile_user.cliente %}
     <div class="user-cardscontainer">
       <div class="card-wh">
-        <img
-          src="{% static 'images/height.png' %}"
-          class="img-responsive"
-          alt=""
-        />
+        <img src="{% static 'images/height.png' %}" class="img-responsive" alt="" />
         <p>192cm</p>
       </div>
       <div class="card-wh">
-        <img
-          src="{% static 'images/weight-scale.png' %}"
-          class="img-responsive"
-          alt=""
-        />
+        <img src="{% static 'images/weight-scale.png' %}" class="img-responsive" alt="" />
         <p>90kg</p>
       </div>
       <div class="card-wh">
@@ -49,19 +46,19 @@
         nesciunt vel?
       </p>
     </div>
+    {% endif %}
+    {%if profile_user.medico %}
+    <div class="flex">
+      <label for="specialty">Especialidad</label>
+      <p id="specialty">{{user.medico.specialty}}</p>
+    </div>
+    <div>
+      <label for="previous">Experiencia Previa</label>
+      <p id="previous">{{profile_user.medico.previous_experience}}</p>
+    </div>
+
+    {% endif %}
   </div>
 
-  <!-- <h1>Perfil de {{ user.username }}</h1>
-  <p>Email: {{ user.email }}</p>
-
-  {% if user.cliente %}
-  <p>Peso: {{ user.cliente.weight }}</p>
-  <p>Altura: {{ user.cliente.height }}</p>
-
-  {% elif user.medico %}
-  <p>Licencia: {{ user.medico.licenseNumber }}</p>
-  <p>Especialidad: {{ user.medico.specialty }}</p>
-
-  {% endif %} -->
 </section>
 {%endblock%}

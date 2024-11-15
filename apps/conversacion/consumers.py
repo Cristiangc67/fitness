@@ -45,6 +45,7 @@ class ChatConsumer(WebsocketConsumer):
                     "type": "chat",
                     "message": message_content,
                     "sender": sender.username,
+                    "sender_id": sender.id,
                     "timestamp": str(message.created),
                 }
             )
@@ -57,6 +58,7 @@ class ChatConsumer(WebsocketConsumer):
                     "type": "chat",
                     "message": event["message"],
                     "sender": event["sender"],
+                    "sender_id": event["sender_id"],
                     "timestamp": event["timestamp"],
                 }
             )

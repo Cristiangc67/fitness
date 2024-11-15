@@ -20,7 +20,7 @@
   height: 20em;
   width: 100%;
   border-radius: 2em 2em 0 0;
-  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+  background-image: linear-gradient(to bottom, #e5b2ca 0%, #7028e4 100%);
 }
 .user-infocontainer {
   position: relative;
