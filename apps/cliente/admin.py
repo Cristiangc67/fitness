@@ -1,11 +1,15 @@
 from django.contrib import admin
 from .models import Cliente
+from .forms.form import ClienteCreationForm
 
 
 # Register your models here.
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
     # Campos que se mostrarán en la lista de clientes
+    add_form = ClienteCreationForm
+    form = ClienteCreationForm
+    model = Cliente
     list_display = [
         "username",
         "email",
