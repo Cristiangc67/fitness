@@ -8,7 +8,6 @@ class Usuario(AbstractUser):
 
     name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-
     create = models.DateTimeField(auto_now_add=True)
     modificated = models.DateTimeField(auto_now=True)
     delete = models.DateTimeField(null=True, blank=True)

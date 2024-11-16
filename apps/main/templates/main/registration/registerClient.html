@@ -1,12 +1,12 @@
 {% extends 'main/base.html' %} {% load static %} {% block content %}
 
-<form action="#" method="post" class="form">
+<form method="post" class="form">
+  {% csrf_token %}
   <div class="form-header">
     <h2>Registration Form</h2>
   </div>
   <label for="username">Username:</label>
   <input type="text" id="username" name="username" required />
-
   <label for="name">Name:</label>
   <input type="text" id="name" name="name" required />
 
@@ -19,15 +19,15 @@
   <label for="password">Password:</label>
   <input type="password" id="password" name="password" required />
 
-  <label for="Peso">Peso (kg)</label>
-  <input type="text" id="Peso" name="Peso" required />
+  <label for="weight">Peso (kg)</label>
+  <input type="text" id="weight" name="weight" required />
 
-  <label for="Altura">Altura (cm):</label>
-  <input type="text" id="Altura" name="Altura" required />
+  <label for="height">Altura (cm):</label>
+  <input type="text" id="height" name="height" required />
 
   <div>
-    <label for="sexo">Genero:</label>
-    <select id="sexo" name="sexo">
+    <label for="genero">Genero:</label>
+    <select id="genero" name="genero">
       <option value="Masculino">Masculino</option>
       <option value="Femenino">Femenino</option>
     </select>
@@ -50,5 +50,6 @@
 
   <input type="submit" value="Register" />
 </form>
-
-{%endblock%}
+{% if form.errors %}
+<p>{{ form.errors }}</p>
+{% endif %} {%endblock%}
