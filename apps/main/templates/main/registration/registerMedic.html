@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+
+<form method="post" class="form">
+  {% csrf_token %}
+  <div class="form-header">
+    <h2>Registration Form</h2>
+  </div>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required />
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+
+  <label for="last_name">Last Name:</label>
+  <input type="text" id="last_name" name="last_name" required />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required />
+
+  <label for="license_number">License Number:</label>
+  <input type="text" id="license_number" name="license_number" required />
+
+  <label for="specialty">Specialty:</label>
+  <input type="text" id="specialty" name="specialty" required />
+
+  <label for="previous_experience">Previous Experience:</label>
+  <textarea
+    id="previous_experience"
+    name="previous_experience"
+    rows="4"
+  ></textarea>
+
+  <input type="submit" value="Register" />
+</form>
+{% if form.errors %}
+<p>{{ form.errors }}</p>
+{% endif %} {%endblock%}
