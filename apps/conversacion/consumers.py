@@ -38,8 +38,18 @@ class ChatConsumer(WebsocketConsumer):
             message=message_content,
             sender=sender,
         )
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name,
+            {
+                "type": "chat_message",
+                "message": message_content,
+                "sender": sender.username,
+                "id": sender.id,
+                "timestamp": str(message.created),
+            },
+        )
 
-        self.send(
+        """ self.send(
             text_data=json.dumps(
                 {
                     "type": "chat",
@@ -49,7 +59,7 @@ class ChatConsumer(WebsocketConsumer):
                     "timestamp": str(message.created),
                 }
             )
-        )
+        ) """
 
     def chat_message(self, event):
         self.send(
@@ -58,7 +68,7 @@ class ChatConsumer(WebsocketConsumer):
                     "type": "chat",
                     "message": event["message"],
                     "sender": event["sender"],
-                    "sender_id": event["sender_id"],
+                    "sender_id": event["id"],
                     "timestamp": event["timestamp"],
                 }
             )

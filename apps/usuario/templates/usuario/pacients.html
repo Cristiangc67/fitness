@@ -1,2 +1,31 @@
-{% extends "main/base.html" %} {% load static %} {% block content %} {% endblock
-%}
+{% extends "main/base.html" %} {% load static %} {% block content %}
+
+<section class="margin-top clients-section cyan">
+
+    <div class="clients-container">
+        <form method="get" class="search-pacients" action="{% url 'medico-pacientes' request.user.pk %}">
+            <input type="text" name="search" placeholder="Buscar paciente..." value="{{ search_query }}">
+            <button type="submit">Buscar</button>
+        </form>
+        {% if clientes %}
+        {% for cliente in clientes %}
+        <div class="client-item">
+            <div class="client-text-container">
+                <p>{{cliente.name}} {{cliente.last_name}}</p>
+                <p>{{cliente.email}}</p>
+            </div>
+            {% if cliente.conversacion %}
+            <a href="{% url 'chatTest' cliente.conversacion.id %}" class="chat-icon-container">
+                <img src="{% static 'images/chat.png' %}" class="chat-icon" alt="">
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <span>No hay conversaciónes aún</span>
+        {% endif %}
+    </div>
+
+
+</section>
+{% endblock%}

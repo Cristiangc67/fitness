@@ -13,7 +13,7 @@ class ChatTest(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
+        context["is_authenticated"] = self.request.user.is_authenticated
         conversation_id = self.kwargs.get("conversation_id")
         conversation = get_object_or_404(Conversacion, id=conversation_id)
         user_id = self.request.user.id

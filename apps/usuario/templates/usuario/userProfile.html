@@ -16,7 +16,7 @@
       {% if user_logged_in.id == profile_user.id %}
       {%if profile_user.medico %}
 
-      <a class="button-pacients" href="#">Lista de Pacientes</a>
+      <a class="button-pacients" href={% url 'medico-pacientes' profile_user.id %}>Lista de Pacientes</a>
       {% endif %}
       <a class="button-pacients" href={% url 'editar_perfil' user.id %}>editar perfil</a>
       {% endif %}
