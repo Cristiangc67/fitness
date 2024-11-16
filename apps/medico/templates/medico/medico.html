@@ -6,13 +6,12 @@
     <title>pagina</title>
   </head>
   <body>
-    soy medicos
-    <h2>INICIO</h2>
+    <h2>LISTA DE MEDICOS ACTIVOS</h2>
     {% for medico in medicos %}
-    <p>{{medico.name}}</p>
-    <p>{{medico.license_number}}</p>
+    <p>{{medico.name}} {{medico.last_name}}</medico> </p>
+    <p>Nro de matricula: {{medico.license_number}}</p>
     <p>{{medico.specialty}}</p>
-    <p>{{medico.previous_experience}}</p>
+    <p>----------------------------</p>
     {% endfor %}
   </body>
 </html>

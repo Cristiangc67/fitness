@@ -10,7 +10,5 @@ class MedicoView(TemplateView):
 
     def get_context_data(self, **kwargs: any):
         context = super().get_context_data(**kwargs)
-        id_medico = self.request.GET.get("id_medico")
-        context["medicos"] = Medico.objects.filter(id=int(id_medico))
-        print(context["medicos"])
+        context['medicos'] = Medico.objects.all()
         return context
