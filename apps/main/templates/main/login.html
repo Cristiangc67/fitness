@@ -17,9 +17,10 @@
         <button class="loginButton">Log in</button>
       </form>
       <p class="registerText">
-        ¿No tienes cuenta? 
-        Si sos médico, registrate <a href="" class="registerLink">acá</a>.
-        Si sos cliente, registrate <a href="" class="registerLink">acá</a>.
+        ¿No tienes cuenta? Si sos médico, registrate
+        <a href="{% url 'RegisterMedic' %}" class="registerLink">acá</a>. Si sos
+        cliente, registrate
+        <a href="{% url 'RegisterClient' %}" class="registerLink">acá</a>.
       </p>
     </div>
     <img
@@ -31,4 +32,4 @@
   </div>
 </section>
 
-{%endblock%}
+{% endblock %}
