@@ -4,17 +4,32 @@
     <div class="inputSection">
       <h2 class="welcomeText">HOLA!</h2>
       <p class="subtext">Bienvenido a fitness. Preparate para estar en forma</p>
-      <form action="" class="logInForm">
+      <form action="{% url 'Login' %}" method="POST" class="logInForm">
+        {% csrf_token %}
         <div class="inputContainer">
-          <label for="email"> Email</label>
-          <input type="email" class="logininput" id="email" name="email" />
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="logininput"
+            id="username"
+            name="username"
+            required
+          />
         </div>
         <div class="inputContainer">
           <label for="password">Contraseña</label>
-          <input type="password" class="logininput" id="password" />
+          <input
+            type="password"
+            class="logininput"
+            id="password"
+            name="password"
+            required
+          />
         </div>
-
-        <button class="loginButton">Log in</button>
+        <button type="submit" class="loginButton">Log in</button>
+        {% if request.GET.error %}
+        <p class="error-message" style="color: red">{{ request.GET.error }}</p>
+        {% endif %}
       </form>
       <p class="registerText">
         ¿No tienes cuenta? Si sos médico, registrate

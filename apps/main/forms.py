@@ -17,6 +17,16 @@ class MedicoForms(forms.ModelForm):
             "specialty",
             "previous_experience",
         ]
+        widgets = {
+            'password': forms.PasswordInput()  # Para que se muestre como campo password
+        }
+        
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password"])  # Hashea la contraseña
+        if commit:
+            user.save()
+        return user
         
 class ClienteForms(forms.ModelForm):
     
@@ -36,3 +46,13 @@ class ClienteForms(forms.ModelForm):
             "diabetic",
             "others",
         ]
+        widgets = {
+            'password': forms.PasswordInput()  # Para que se muestre como campo password
+        }
+        
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password"])  # Hashea la contraseña
+        if commit:
+            user.save()
+        return user
