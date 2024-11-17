@@ -9,7 +9,7 @@ from .views import (
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    path("home/", HomeView.as_view(), name="Home"),
+    path("", HomeView.as_view(), name="Home"),
     path("about/", AboutUsView.as_view(), name="About"),
     path("login/", LogInView.as_view(), name="Login"),
     path("login/register_client/", RegisterClientView.as_view(), name="RegisterClient"),
