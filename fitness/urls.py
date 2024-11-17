@@ -25,4 +25,5 @@ urlpatterns = [
     path("chat/", include("apps.conversacion.urls")),
     path("mealPlans/", include("apps.planAlimentacion.urls")),
     path("usuario/", include("apps.usuario.urls")),
+    path("ejercicios/", include("apps.planEjercicio.urls"))
 ]
