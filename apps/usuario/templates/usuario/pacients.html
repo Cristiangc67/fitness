@@ -24,6 +24,19 @@
         {% else %}
         <span>No hay conversaciónes aún</span>
         {% endif %}
+        {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+            <a href="?search={{ search_query }}&page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+
+            <span>Página {{ page_obj.number }} de {{ paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+            <a href="?search={{ search_query }}&page={{ page_obj.next_page_number }}">Siguiente</a>
+            {% endif %}
+        </div>
+        {% endif %}
     </div>
 
 
