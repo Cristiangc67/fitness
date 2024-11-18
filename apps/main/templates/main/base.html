@@ -46,11 +46,15 @@
         <ul class="nav navbar-nav navbar-right main-navigation">
           <li><a href={% url 'Home' %} class="smoothScroll">Home</a></li>
           <li><a href={% url 'About' %} class="smoothScroll">About</a></li>
-
+          {% if user.cliente %}
           <li><a href={% url 'PlanEjercicio' %}>Plan de Ejercicios</a></li>
           <li>
             <a href={% url 'MealPlans' %} class="smoothScroll">Planes de Alimentacion</a>
           </li>
+          {% endif %}
+          {% if user.medico %}
+          <li><a href={% url 'medico-pacientes' user.medico.id %}>Lista pacientes</a></li>
+          {% endif %}
 
 
           {% if is_authenticated %}

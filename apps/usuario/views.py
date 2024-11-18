@@ -23,6 +23,8 @@ class UserView(DetailView):
     def get_context_data(self, **kwargs: any):
         context = super().get_context_data(**kwargs)
         context["is_authenticated"] = self.request.user.is_authenticated
+        user = self.request.user
+        context[user] = user
         context["user_logged_in"] = self.request.user
         context["profile_user"] = self.get_object()
         return context
@@ -55,6 +57,8 @@ class UserUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs: any):
         context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context[user] = user
         context["is_authenticated"] = self.request.user.is_authenticated
         return context
 
@@ -124,6 +128,8 @@ class PacientsView(MedicoRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["is_authenticated"] = self.request.user.is_authenticated
+        user = self.request.user
+        context[user] = user
         context["search_query"] = self.request.GET.get("search", "").strip()
         return context
 
