@@ -7,6 +7,9 @@ class PlanAlimentacion(models.Model):
     modificated = models.DateTimeField(auto_now_add=True)
     delete = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=200, null=True, blank=True)
+    
+    def __str__(self):
+        return self.name
 
 
 # un cliente puede tener un solo plan de alimentacion y un plan de alimentacion

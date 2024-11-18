@@ -1,28 +1,65 @@
-{% extends "main/base.html" %} {% load static %} {% block content %}
-<main class="margin-top">
+{% extends "main/base.html" %} 
+{% block content %}
+<main>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 
   <div class="container">
     <h2>Sugerir Plan Personalizado para {{ cliente.name }}</h2>
     <form method="post">
       {% csrf_token %}
+      <!-- Plan de Alimentación -->
       <div class="form-group">
-        <label>Plan de Alimentación Actual</label>
-        <p>{{ cliente.plan_alimentacion.nombre }}</p>
-        {{ form.plan_alimentacion }}
+        <label>Plan de Alimentación Actual:</label>
+        <p>
+          {% if cliente.plan_alimentacion %}
+            {{ cliente.plan_alimentacion.name }}
+          {% else %}
+            Ningún plan de alimentación asignado
+          {% endif %}
+        </p>
+        
+        <label for="plan_alimentacion">Seleccione un nuevo plan de alimentación:</label>
+        <select name="plan_alimentacion" id="plan_alimentacion" class="form-control">
+          <option value="" {% if not cliente.plan_alimentacion %} selected {% endif %}>Seleccionar un plan</option>
+          {% for plan in planes_alimentacion %}
+            <option value="{{ plan.id }}" {% if plan == cliente.plan_alimentacion %} selected {% endif %}>{{ plan.name }}</option>
+          {% endfor %}
+        </select>
       </div>
+
+      <!-- Plan de Ejercicio -->
       <div class="form-group">
-        <label>Plan de Ejercicio Actual</label>
-        <p>{{ cliente.plan_ejercicio.nombre }}</p>
-        {{ form.plan_ejercicio }}
+        <label>Plan de Ejercicio Actual:</label>
+        <p>
+          {% if cliente.plan_ejercicio %}
+            {{ cliente.plan_ejercicio.name }}
+          {% else %}
+            Ningún plan de ejercicio asignado
+          {% endif %}
+        </p>
+
+        <label for="plan_ejercicio">Seleccione un nuevo plan de ejercicio:</label>
+        <select name="plan_ejercicio" id="plan_ejercicio" class="form-control">
+          <option value="" {% if not cliente.plan_ejercicio %} selected {% endif %}>Seleccionar un plan</option>
+          {% for plan in planes_ejercicio %}
+            <option value="{{ plan.id }}" {% if plan == cliente.plan_ejercicio %} selected {% endif %}>{{ plan.name }}</option>
+          {% endfor %}
+        </select>
       </div>
+
+      <!-- Sugerencias -->
       <div class="form-group">
         <label>Sugerencias</label>
         {{ form.sugerencias }}
       </div>
-      <button type="submit" class="btn btn-primary">
-        Guardar Sugerencia de Plan
-      </button>
+      
+      <button type="submit" class="btn btn-primary">Guardar Sugerencia de Plan</button>
     </form>
-  </div>
+</div>
+
 </main>
 {% endblock %}

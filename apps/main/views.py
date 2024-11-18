@@ -87,6 +87,7 @@ class RegisterClientView(CreateView):
                 plan = 3
 
             cliente.plan_alimentacion_id = plan
+            cliente.plan_ejercicio_id = 1
             cliente.save()
             # Redirigir a la página de login o a la página deseada
         return response
