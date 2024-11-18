@@ -4,7 +4,7 @@ from apps.cliente.models import Cliente
 
 
 class MedicoForms(forms.ModelForm):
-    
+
     class Meta:
         model = Medico
         fields = [
@@ -18,18 +18,19 @@ class MedicoForms(forms.ModelForm):
             "previous_experience",
         ]
         widgets = {
-            'password': forms.PasswordInput()  # Para que se muestre como campo password
+            "password": forms.PasswordInput()  # Para que se muestre como campo password
         }
-        
+
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password"])  # Hashea la contraseña
         if commit:
             user.save()
         return user
-        
+
+
 class ClienteForms(forms.ModelForm):
-    
+
     class Meta:
         model = Cliente
         fields = [
@@ -47,9 +48,9 @@ class ClienteForms(forms.ModelForm):
             "others",
         ]
         widgets = {
-            'password': forms.PasswordInput()  # Para que se muestre como campo password
+            "password": forms.PasswordInput()  # Para que se muestre como campo password
         }
-        
+
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password"])  # Hashea la contraseña

@@ -12,12 +12,15 @@ class Cliente(Usuario):
         blank=True,
         null=True,
     )
-    vegetarian = models.BooleanField(null=True)
-    hypertension = models.BooleanField(null=True)
-    diabetic = models.BooleanField(null=True)
+    vegetarian = models.BooleanField(default=False)
+    hypertension = models.BooleanField(default=False)
+    diabetic = models.BooleanField(default=False)
     others = models.CharField(max_length=500, blank=True, null=True)
     plan_alimentacion = models.ForeignKey(
-        "planAlimentacion.PlanAlimentacion", on_delete=models.CASCADE, blank=True, null=True
+        "planAlimentacion.PlanAlimentacion",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
     )
     plan_ejercicio = models.ForeignKey(
         "planEjercicio.PlanEjercicio", on_delete=models.CASCADE, blank=True, null=True

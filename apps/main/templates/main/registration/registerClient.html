@@ -27,26 +27,23 @@
 
   <div>
     <label for="genero">Genero:</label>
-    <select id="genero" name="genero">
-      <option value="Masculino">Masculino</option>
-      <option value="Femenino">Femenino</option>
-    </select>
+    {{form.genre}}
   </div>
   <div>
     <label for="hipertenso">Hipertenso:</label>
-    <input type="checkbox" name="hipertenso" id="hipertenso" />
+    {{form.hypertension}}
   </div>
   <div>
     <label for="Diabetico">Diabetico:</label>
-    <input type="checkbox" name="Diabetico" id="Diabetico" />
+    {{ form.diabetic }}
   </div>
   <div>
     <label for="Vegetariano">Vegetariano:</label>
-    <input type="checkbox" name="Vegetariano" id="Vegetariano" />
+    {{form.vegetarian}}
   </div>
 
   <label for="otras_condiciones">Otras Condiciones</label>
-  <textarea id="otras_condiciones" name="otras_condiciones" rows="4"></textarea>
+  <textarea id="otras_condiciones" name="others" rows="4"></textarea>
 
   <input type="submit" value="Register" />
 </form>
