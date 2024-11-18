@@ -56,23 +56,6 @@ class LogInView(TemplateView):
             return redirect(f"{settings.LOGIN_URL}?error=Credenciales inválidas")
 
 
-""" class RegisterTemplateMedicView(TemplateView):
-    template_name = "main/registration/registerMedic.html"
-
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        context = super().get_context_data(**kwargs)
-        context["medicos"] = Medico.objects.all()
-        return context
-
-
-class RegisterTemplateClientView(TemplateView):
-    template_name = "main/registration/registerClient.html"
-
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        context = super().get_context_data(**kwargs)
-        context["clientes"] = Cliente.objects.all() """
-
-
 class RegisterClientView(CreateView):
     model = Cliente
     form_class = ClienteForms

@@ -7,7 +7,7 @@ from ..usuario.mixins import ClienteRequiredMixin
 
 
 # Create your views here.
-class MealPlansView(LoginRequiredMixin, TemplateView):
+class MealPlansView(ClienteRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs: any):
         context = super().get_context_data(**kwargs)
