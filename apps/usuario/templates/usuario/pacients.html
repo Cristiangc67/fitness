@@ -5,6 +5,9 @@
     <form method="get" class="search-pacients" action="{% url 'medico-pacientes' request.user.pk %}">
       <input type="text" name="search" placeholder="Buscar paciente..." value="{{ search_query }}" />
       <button type="submit">Buscar</button>
+      <button type="submit" name="ordenar" value="alfabetico">
+        <img src="{% static 'images/alphabet.png' %}" class="icon-alphabet">
+      </button>
     </form>
     {% if clientes %}
     {% for cliente in clientes %}

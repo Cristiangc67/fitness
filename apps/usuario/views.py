@@ -17,6 +17,7 @@ from .forms.profileForm import SugerenciaPlanForm
 from apps.planAlimentacion.models import PlanAlimentacion
 from apps.planEjercicio.models import PlanEjercicio
 from django.urls import reverse_lazy
+from django.db.models.functions import Lower
 
 
 # Create your views here.
@@ -121,6 +122,11 @@ class PacientsView(MedicoRequiredMixin, ListView):
             for term in search_terms:
                 query |= Q(name__icontains=term) | Q(last_name__icontains=term)
             clientes = clientes.filter(query)
+
+        ordenar = self.request.GET.get("ordenar")
+        if ordenar == "alfabetico":
+            clientes = clientes.order_by(Lower("name"), Lower("last_name"))
+            print("ordenados", clientes)
 
         for cliente in clientes:
             cliente.conversacion = Conversacion.objects.filter(
