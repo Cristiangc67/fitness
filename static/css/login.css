@@ -6,7 +6,7 @@
 .login {
   display: flex;
   justify-content: space-between;
-  height: 75vh;
+  height: 100vh;
   width: 100%;
   background-color: #f9f9f9;
   /*  background: #26253a; */

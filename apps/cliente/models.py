@@ -28,3 +28,4 @@ class Cliente(Usuario):
     assigned_medico = models.ForeignKey(
         "medico.Medico", on_delete=models.CASCADE, null=True, blank=True
     )
+    sugerencias = models.TextField(null=True, blank=True)

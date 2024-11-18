@@ -32,9 +32,9 @@
     name="previous_experience"
     rows="4"
   ></textarea>
-
   <input type="submit" value="Register" />
+  {% if form.errors %}
+  <p>{{ form.errors }}</p>
+  {% endif %}
 </form>
-{% if form.errors %}
-<p>{{ form.errors }}</p>
-{% endif %} {%endblock%}
+{%endblock%}

@@ -1,122 +1,169 @@
-{% extends 'main/base.html' %}{% block content %}
-{% load static %}
+{% extends 'main/base.html' %}{% block content %} {% load static %}
 <!-- =========================
     BLOG HEADER SECTION   
 ============================== -->
 <section id="blog-header" class="parallax-section margin-top">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-offset-2 col-md-8 col-sm-12">
-				<h1 class="wow fadeInUp" data-wow-delay="1.6s">Dieta Vegana</h1>
-			</div>
-
-
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-sm-12">
+        <h1 class="wow fadeInUp" data-wow-delay="1.6s">Dieta Vegana</h1>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- =========================
     BLOG SECTION   
 ============================== -->
-<section id="blog" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-12 col-sm-12">
-
-				<div class="blog-content wow fadeInUp" data-wow-delay="1s">
-					<div class="blog-clear"></div>
-					<p>Un plan de alimentación vegano es aquel que no contiene productos de origen animal, como lácteos, miel, gelatina o huevos. Es un tipo de dieta con muchos beneficios para la salud, ya que es reducida en grasas, calorías y alimentos que, por lo general, se consideran “dañinos”. 
-                    </p>
-                    <div class="blog-categories">
-                        <h3>La dieta vegana se compone principalmente de:</h3>
-                            <li>•	Legumbres o granos</li>
-                            <li>•	Frutos secos y semillas</li>
-                            <li>•	Frutas y verduras</li>
-                            <li>•	Algas marinas</li>
-                            <li>•	Cereales integrales</li>
-                    </div>
-                    <p>Todos estos alimentos se combinan en platos equilibrado con el fin de cumplir los requerimientos nutricionales del organismo.
-                        Para bajar de peso es fundamental consumir menos calorías de las que se queman. La dieta vegana, siempre y cuando esté bien planteada, es una de las más recomendadas para alcanzar dicho objetivo.</p>
-					<blockquote>
-						Su éxito se debe a la combinación de ingredientes saludables y bajos en calorías que, sin dejar de brindar importantes nutrientes, sacian, mejoran la digestión y favorecen la pérdida de peso.
-					</blockquote>
-					<p> Uno de los aspectos más controvertidos de las dietas veganas tiene que ver con las deficiencias nutricionales. Debido a las restricciones de alimentos de origen animal, muchos hablan de lo peligroso que puede ser mantener este tipo de alimentación.
-                        Lo cierto es que todo depende de cómo se diseñen los platos. Una dieta vegana puede aportar los nutrientes adecuados para todas las etapas de la vida, siempre y cuando se planifique con cuidado y se tengan en cuenta los requerimientos del organismo.
-                        La única excepción es la vitamina B12, que es de origen animal. Debe tomarse aparte, bien como levadura nutricional, o como suplemento vitamínico (lo más recomendado es la cianocobalamina).
-                        En cuanto a las proteínas, cuyas principales fuentes también son animales, se remplazan por productos de origen vegetal que aportan proteínas de alto valor biológico, es decir, de fácil asimilación.                        
-					</p>
-				</div>
-
-				<div class="recent-post">
-					<h2>Menú semanal</h2>
-
-						<div class="media">
-							
-							<div class="media-body">
-								<h3>Lunes</h3>
-								<p>•	Desayuno: ensalada de fruta.<br><br>
-									•	Media mañana: puñado de frutos secos.<br><br>
-									•	Almuerzo: falafel y hummus envuelto con verduras.<br><br>
-									•	Merienda: vaso de leche vegetal (coco, almendra o soja) y tostada con tomate y aceite.<br><br>
-									•	Cena: pizza vegana.
-								</p>
-								<br>
-								<h3>Martes</h3>
-								<p>•	Desayuno: vaso de leche vegetal y porción de pan integral con puré de aguacate y tomate.<br><br>
-									•	Media mañana: mezcla de frutas frescas sin añadidos.<br><br>
-									•	Almuerzo: plato de ensalada de quinoa con espárragos y fresas.<br><br>
-									•	Merienda: vaso de leche vegetal y 1 cucharada de semillas de girasol.<br><br>
-									•	Cena: salteado de brócoli, calabaza y tofu.
-								</p>
-								<br>
-								<h3>Miércoles</h3>
-								<p>•	Desayuno: el zumo de una naranja, una pera y kiwi picados, un puñado de frutos secos y una tostada con ensalada y aceite de oliva.<br><br>
-									•	Media mañana: vaso de leche vegetal y galletas veganas.<br><br>
-									•	Almuerzo: crema de papas y puerros, albóndigas de avena con tomate y tomillo.<br><br>
-									•	Merienda: manzana picada y un puñado de avellanas (20 gramos).<br><br>
-									•	Cena: ensalada de garbanzos, arroz integral y tofu, pan integral y yogur de soja con mermelada.
-								</p>
-								<br>
-								<h3>Jueves</h3>
-								<p>•	Desayuno: una pera y melocotón picados, un vaso de leche vegetal y un puñado de frutos secos.<br><br>
-									•	Media mañana: una manzana y un kiwi picados, y galletas integrales.<br><br>
-									•	Almuerzo: ensalada de arvejas y verdura, pasta con tomate y tofu.<br><br>
-									•	Merienda: dos mandarinas.<br><br>
-									•	Cena: verduras y seitán salteado, vaso de leche vegetal.
-								</p>
-								<br>
-								<h3>Viernes</h3>
-								<p>•	Desayuno: vaso de leche vegetal con galletas veganas de avena y coco.<br><br>
-									•	Media Mañana: mezcla de frutas frescas sin añadidos.<br><br>
-									•	Almuerzo: hamburguesa de chauchas y champiñones con patatas asadas.<br><br>
-									•	Merienda: vaso de leche vegetal y pan integral con puré de aguacate y tomate.<br><br>
-									•	Cena: tofu en salsa de ajo negro y ensalada de col lombarda con mayonesa vegana.
-								</p>
-								<br>
-								<h3>Sábado</h3>
-								<p>•	Desayuno: té con leche de avena y pan integral con mermelada.<br><br>
-									•	Media mañana: vaso de leche vegetal y galletas veganas.<br><br>
-									•	Almuerzo: bruschetta con tomate y pimientas rojos rellenos de arroz.<br><br>
-									•	Merienda: dos piezas de fruta picadas.<br><br>
-									•	Cena: tortilla vegana con champiñones.
-								</p>
-								<br>
-								<h3>Domingo</h3>
-								<p>•	Día de descanso. Preparar un menú libre, sin productos de origen animal, claro está.
-								</p>
-							</div>
-						</div>
-						
-				</div>
-                
-			</div>
-                
-		</div>
-			
-	</div>
+<!-- =========================
+    SUGGESTION SECTION (only shows if there is a suggestion)
+============================== -->
+{% if sugerencias %}
+<section id="suggestion" class="alert alert-info">
+  <strong>Sugerencia del médico {{ medico_nombre }}:</strong>
+  {{ sugerencias }}<br />
 </section>
+{% endif %}
 
+<section id="blog" class="parallax-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="blog-content wow fadeInUp" data-wow-delay="1s">
+          <div class="blog-clear"></div>
+          <p>
+            Un plan de alimentación vegano es aquel que no contiene productos de
+            origen animal, como lácteos, miel, gelatina o huevos. Es un tipo de
+            dieta con muchos beneficios para la salud, ya que es reducida en
+            grasas, calorías y alimentos que, por lo general, se consideran
+            “dañinos”.
+          </p>
+          <div class="blog-categories">
+            <h3>La dieta vegana se compone principalmente de:</h3>
+            <li>• Legumbres o granos</li>
+            <li>• Frutos secos y semillas</li>
+            <li>• Frutas y verduras</li>
+            <li>• Algas marinas</li>
+            <li>• Cereales integrales</li>
+          </div>
+          <p>
+            Todos estos alimentos se combinan en platos equilibrado con el fin
+            de cumplir los requerimientos nutricionales del organismo. Para
+            bajar de peso es fundamental consumir menos calorías de las que se
+            queman. La dieta vegana, siempre y cuando esté bien planteada, es
+            una de las más recomendadas para alcanzar dicho objetivo.
+          </p>
+          <blockquote>
+            Su éxito se debe a la combinación de ingredientes saludables y bajos
+            en calorías que, sin dejar de brindar importantes nutrientes,
+            sacian, mejoran la digestión y favorecen la pérdida de peso.
+          </blockquote>
+          <p>
+            Uno de los aspectos más controvertidos de las dietas veganas tiene
+            que ver con las deficiencias nutricionales. Debido a las
+            restricciones de alimentos de origen animal, muchos hablan de lo
+            peligroso que puede ser mantener este tipo de alimentación. Lo
+            cierto es que todo depende de cómo se diseñen los platos. Una dieta
+            vegana puede aportar los nutrientes adecuados para todas las etapas
+            de la vida, siempre y cuando se planifique con cuidado y se tengan
+            en cuenta los requerimientos del organismo. La única excepción es la
+            vitamina B12, que es de origen animal. Debe tomarse aparte, bien
+            como levadura nutricional, o como suplemento vitamínico (lo más
+            recomendado es la cianocobalamina). En cuanto a las proteínas, cuyas
+            principales fuentes también son animales, se remplazan por productos
+            de origen vegetal que aportan proteínas de alto valor biológico, es
+            decir, de fácil asimilación.
+          </p>
+        </div>
+
+        <div class="recent-post">
+          <h2>Menú semanal</h2>
+
+          <div class="media">
+            <div class="media-body">
+              <h3>Lunes</h3>
+              <p>
+                • Desayuno: ensalada de fruta.<br /><br />
+                • Media mañana: puñado de frutos secos.<br /><br />
+                • Almuerzo: falafel y hummus envuelto con verduras.<br /><br />
+                • Merienda: vaso de leche vegetal (coco, almendra o soja) y
+                tostada con tomate y aceite.<br /><br />
+                • Cena: pizza vegana.
+              </p>
+              <br />
+              <h3>Martes</h3>
+              <p>
+                • Desayuno: vaso de leche vegetal y porción de pan integral con
+                puré de aguacate y tomate.<br /><br />
+                • Media mañana: mezcla de frutas frescas sin añadidos.<br /><br />
+                • Almuerzo: plato de ensalada de quinoa con espárragos y
+                fresas.<br /><br />
+                • Merienda: vaso de leche vegetal y 1 cucharada de semillas de
+                girasol.<br /><br />
+                • Cena: salteado de brócoli, calabaza y tofu.
+              </p>
+              <br />
+              <h3>Miércoles</h3>
+              <p>
+                • Desayuno: el zumo de una naranja, una pera y kiwi picados, un
+                puñado de frutos secos y una tostada con ensalada y aceite de
+                oliva.<br /><br />
+                • Media mañana: vaso de leche vegetal y galletas veganas.<br /><br />
+                • Almuerzo: crema de papas y puerros, albóndigas de avena con
+                tomate y tomillo.<br /><br />
+                • Merienda: manzana picada y un puñado de avellanas (20
+                gramos).<br /><br />
+                • Cena: ensalada de garbanzos, arroz integral y tofu, pan
+                integral y yogur de soja con mermelada.
+              </p>
+              <br />
+              <h3>Jueves</h3>
+              <p>
+                • Desayuno: una pera y melocotón picados, un vaso de leche
+                vegetal y un puñado de frutos secos.<br /><br />
+                • Media mañana: una manzana y un kiwi picados, y galletas
+                integrales.<br /><br />
+                • Almuerzo: ensalada de arvejas y verdura, pasta con tomate y
+                tofu.<br /><br />
+                • Merienda: dos mandarinas.<br /><br />
+                • Cena: verduras y seitán salteado, vaso de leche vegetal.
+              </p>
+              <br />
+              <h3>Viernes</h3>
+              <p>
+                • Desayuno: vaso de leche vegetal con galletas veganas de avena
+                y coco.<br /><br />
+                • Media Mañana: mezcla de frutas frescas sin añadidos.<br /><br />
+                • Almuerzo: hamburguesa de chauchas y champiñones con patatas
+                asadas.<br /><br />
+                • Merienda: vaso de leche vegetal y pan integral con puré de
+                aguacate y tomate.<br /><br />
+                • Cena: tofu en salsa de ajo negro y ensalada de col lombarda
+                con mayonesa vegana.
+              </p>
+              <br />
+              <h3>Sábado</h3>
+              <p>
+                • Desayuno: té con leche de avena y pan integral con
+                mermelada.<br /><br />
+                • Media mañana: vaso de leche vegetal y galletas veganas.<br /><br />
+                • Almuerzo: bruschetta con tomate y pimientas rojos rellenos de
+                arroz.<br /><br />
+                • Merienda: dos piezas de fruta picadas.<br /><br />
+                • Cena: tortilla vegana con champiñones.
+              </p>
+              <br />
+              <h3>Domingo</h3>
+              <p>
+                • Día de descanso. Preparar un menú libre, sin productos de
+                origen animal, claro está.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {%endblock%}

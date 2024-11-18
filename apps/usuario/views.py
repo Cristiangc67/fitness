@@ -13,6 +13,10 @@ from ..conversacion.models import Conversacion
 from django.db.models import Q
 from django.core.exceptions import PermissionDenied
 from django.db.models import Count
+from .forms.profileForm import SugerenciaPlanForm
+from apps.planAlimentacion.models import PlanAlimentacion
+from apps.planEjercicio.models import PlanEjercicio
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -162,3 +166,32 @@ class ClienteChatRedirectView(ClienteRequiredMixin, View):
         )
 
         return redirect(reverse("chatTest", args=[conversacion.pk]))
+    
+class SugerirPlanView(LoginRequiredMixin, UpdateView):
+    model = Cliente
+    form_class = SugerenciaPlanForm
+    template_name = 'usuario/editarPlan.html'
+    pk_url_kwarg = 'cliente_pk'
+    success_url = reverse_lazy('medico-pacientes')
+
+    def get_success_url(self):
+        return reverse_lazy('medico-pacientes', kwargs={'pk': self.request.user.pk})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cliente'] = self.object
+        context['planes_alimentacion'] = PlanAlimentacion.objects.all()
+        context['planes_ejercicio'] = PlanEjercicio.objects.all()
+        return context
+
+    def form_valid(self, form):
+        # Asegurarse de que solo el médico asignado pueda hacer sugerencias
+        cliente = self.get_object()
+        
+        if not cliente.assigned_medico or cliente.assigned_medico != self.request.user.medico:
+            raise PermissionDenied("No tienes permiso para sugerir planes a este cliente.")
+        
+        # Pasar el médico al método save del formulario
+        form.save(medico=self.request.user.medico)
+        
+        return super().form_valid(form)

@@ -1,0 +1,33 @@
+{% extends "main/base.html" %} {% block content %}
+<main>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <div class="container">
+    <h2>Sugerir Plan Personalizado para {{ cliente.name }}</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>Plan de Alimentación Actual</label>
+        <p>{{ cliente.plan_alimentacion.nombre }}</p>
+        {{ form.plan_alimentacion }}
+      </div>
+      <div class="form-group">
+        <label>Plan de Ejercicio Actual</label>
+        <p>{{ cliente.plan_ejercicio.nombre }}</p>
+        {{ form.plan_ejercicio }}
+      </div>
+      <div class="form-group">
+        <label>Sugerencias</label>
+        {{ form.sugerencias }}
+      </div>
+      <button type="submit" class="btn btn-primary">
+        Guardar Sugerencia de Plan
+      </button>
+    </form>
+  </div>
+</main>
+{% endblock %}
