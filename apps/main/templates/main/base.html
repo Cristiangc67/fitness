@@ -70,9 +70,10 @@
           {% endif %}
           <li>
             {% if is_authenticated %}
-            <form action={% url 'Logout' %} method="post" class="smoothScroll">
+
+            <form action={% url 'Logout' %} class="form-logout" method="post" class="smoothScroll ">
               {%csrf_token%}
-              <button type="submit">logout</button>
+              <button type="submit" class="logoutButton">Logout</button>
             </form>
 
             {% else %}

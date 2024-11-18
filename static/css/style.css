@@ -1,3 +1,15 @@
+.form-logout {
+  padding: 15px;
+}
+.logoutButton {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 24px;
+  background: none;
+  border: none;
+  align-content: baseline;
+  padding: 13px;
+  color: #999;
+}
 .blank {
   width: 100vw;
   height: 8em;

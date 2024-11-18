@@ -180,25 +180,33 @@ class SugerirPlanView(LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        cliente = self.get_object() 
+        context["is_authenticated"] = self.request.user.is_authenticated
+        user = self.request.user
+        context[user] = user
+        cliente = self.get_object()
 
-        context['cliente'] = cliente
-        context['planes_alimentacion'] = PlanAlimentacion.objects.all()
-        context['planes_ejercicio'] = PlanEjercicio.objects.all() 
-       
-        context['planes_alimentacion'] = PlanAlimentacion.objects.all()
-        context['planes_ejercicio'] = PlanEjercicio.objects.all()
+        context["cliente"] = cliente
+        context["planes_alimentacion"] = PlanAlimentacion.objects.all()
+        context["planes_ejercicio"] = PlanEjercicio.objects.all()
 
-        context['cliente'] = cliente
+        context["planes_alimentacion"] = PlanAlimentacion.objects.all()
+        context["planes_ejercicio"] = PlanEjercicio.objects.all()
+
+        context["cliente"] = cliente
         return context
 
     def form_valid(self, form):
         # Asegurarse de que solo el médico asignado pueda hacer sugerencias
         cliente = self.get_object()
-        
-        if not cliente.assigned_medico or cliente.assigned_medico != self.request.user.medico:
-            raise PermissionDenied("No tienes permiso para sugerir planes a este cliente.")
-        
+
+        if (
+            not cliente.assigned_medico
+            or cliente.assigned_medico != self.request.user.medico
+        ):
+            raise PermissionDenied(
+                "No tienes permiso para sugerir planes a este cliente."
+            )
+
         # Pasar el médico al método save del formulario
         form.save(medico=self.request.user.medico)
 
