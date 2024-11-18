@@ -2,59 +2,42 @@
 
 <section class="margin-top clients-section cyan">
   <div class="clients-container">
-    <form
-      method="get"
-      class="search-pacients"
-      action="{% url 'medico-pacientes' request.user.pk %}"
-    >
-      <input
-        type="text"
-        name="search"
-        placeholder="Buscar paciente..."
-        value="{{ search_query }}"
-      />
+    <form method="get" class="search-pacients" action="{% url 'medico-pacientes' request.user.pk %}">
+      <input type="text" name="search" placeholder="Buscar paciente..." value="{{ search_query }}" />
       <button type="submit">Buscar</button>
     </form>
-    {% if clientes %} {% for cliente in clientes %}
+    {% if clientes %}
+    {% for cliente in clientes %}
     <div class="client-item">
       <div class="client-text-container">
         <p>{{ cliente.name }} {{ cliente.last_name }}</p>
         <p>{{ cliente.email }}</p>
       </div>
-     {% if cliente.conversacion %}
-<div style="display: flex">
-<a href="{% url 'sugerir-plan' cliente.pk %}" class="chat-icon-container">
+      {% if cliente.conversacion %}
+      <div style="display: flex">
+        <a href="{% url 'sugerir-plan' cliente.pk %}" class="chat-icon-container"></a>
 
-</a>
-
-  <a
-    href="{% url 'chatTest' cliente.conversacion.id %}"
-    class="chat-icon-container"
-  >
-    <img src="{% static 'images/chat.png' %}" class="chat-icon" alt="" />
-  </a>
-</div>
-{% endif %}
+        <a href="{% url 'chatTest' cliente.conversacion.id %}" class="chat-icon-container">
+          <img src="{% static 'images/chat.png' %}" class="chat-icon" alt="" />
+        </a>
+      </div>
+    </div>
+    {% endif %}
 
     {% endfor %} {% else %}
     <span>No hay conversaciónes aún</span>
     {% endif %} {% if is_paginated %}
     <div class="pagination">
       {% if page_obj.has_previous %}
-      <a
-        href="?search={{ search_query }}&page={{
+      <a href="?search={{ search_query }}&page={{
           page_obj.previous_page_number
-        }}"
-        >Anterior</a
-      >
+        }}">Anterior</a>
       {% endif %}
 
       <span>Página {{ page_obj.number }} de {{ paginator.num_pages }}</span>
 
       {% if page_obj.has_next %}
-      <a href="?search={{ search_query }}&page={{ page_obj.next_page_number }}"
-        >Siguiente</a
-      >
+      <a href="?search={{ search_query }}&page={{ page_obj.next_page_number }}">Siguiente</a>
       {% endif %}
     </div>
     {% endif %}

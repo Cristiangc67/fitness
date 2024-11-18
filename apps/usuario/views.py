@@ -28,7 +28,7 @@ class UserView(DetailView):
         context = super().get_context_data(**kwargs)
         context["is_authenticated"] = self.request.user.is_authenticated
         user = self.request.user
-        context[user] = user
+        context["user"] = user
         context["user_logged_in"] = self.request.user
         context["profile_user"] = self.get_object()
         return context
@@ -133,7 +133,7 @@ class PacientsView(MedicoRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context["is_authenticated"] = self.request.user.is_authenticated
         user = self.request.user
-        context[user] = user
+        context["user"] = user
         context["search_query"] = self.request.GET.get("search", "").strip()
         return context
 
@@ -166,32 +166,41 @@ class ClienteChatRedirectView(ClienteRequiredMixin, View):
         )
 
         return redirect(reverse("chatTest", args=[conversacion.pk]))
-    
+
+
 class SugerirPlanView(LoginRequiredMixin, UpdateView):
     model = Cliente
     form_class = SugerenciaPlanForm
-    template_name = 'usuario/editarPlan.html'
-    pk_url_kwarg = 'cliente_pk'
-    success_url = reverse_lazy('medico-pacientes')
+    template_name = "usuario/editarPlan.html"
+    pk_url_kwarg = "cliente_pk"
+    success_url = reverse_lazy("medico-pacientes")
 
     def get_success_url(self):
-        return reverse_lazy('medico-pacientes', kwargs={'pk': self.request.user.pk})
+        return reverse_lazy("medico-pacientes", kwargs={"pk": self.request.user.pk})
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cliente'] = self.object
-        context['planes_alimentacion'] = PlanAlimentacion.objects.all()
-        context['planes_ejercicio'] = PlanEjercicio.objects.all()
+        user = self.request.user
+        context["user"] = user
+        context["is_authenticated"] = self.request.user.is_authenticated
+        context["cliente"] = self.object
+        context["planes_alimentacion"] = PlanAlimentacion.objects.all()
+        context["planes_ejercicio"] = PlanEjercicio.objects.all()
         return context
 
     def form_valid(self, form):
         # Asegurarse de que solo el médico asignado pueda hacer sugerencias
         cliente = self.get_object()
-        
-        if not cliente.assigned_medico or cliente.assigned_medico != self.request.user.medico:
-            raise PermissionDenied("No tienes permiso para sugerir planes a este cliente.")
-        
+
+        if (
+            not cliente.assigned_medico
+            or cliente.assigned_medico != self.request.user.medico
+        ):
+            raise PermissionDenied(
+                "No tienes permiso para sugerir planes a este cliente."
+            )
+
         # Pasar el médico al método save del formulario
         form.save(medico=self.request.user.medico)
-        
+
         return super().form_valid(form)
