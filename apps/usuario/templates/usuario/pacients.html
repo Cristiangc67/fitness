@@ -1,6 +1,6 @@
 {% extends "main/base.html" %} {% load static %} {% block content %}
 
-<section class="margin-top clients-section cyan">
+<section class="margin-top clients-section ">
   <div class="clients-container">
     <form method="get" class="search-pacients" action="{% url 'medico-pacientes' request.user.pk %}">
       <input type="text" name="search" placeholder="Buscar paciente..." value="{{ search_query }}" />
@@ -14,7 +14,7 @@
         <p>{{ cliente.email }}</p>
       </div>
       {% if cliente.conversacion %}
-      <div style="display: flex">
+      <div class="buttons-container">
         <a href="{% url 'sugerir-plan' cliente.pk %}" class="chat-icon-container"></a>
 
         <a href="{% url 'chatTest' cliente.conversacion.id %}" class="chat-icon-container">

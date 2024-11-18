@@ -6,7 +6,7 @@
   <h1>{{client.name}} {{client.last_name}}</h1>
   {% endif %}
 
-  <div id="messages" class="messages-container cyan">
+  <div id="messages" class="messages-container">
     {% for msg in messages %}
     <div
       class="message-container {% if msg.sender.id == user.id %} sender {% elif msg.sender.id != user.id %} receiver {% endif %}">
@@ -19,8 +19,9 @@
     </div>
     {% endfor %}
   </div>
-  <form id="form" action="">
+  <form id="form" class="formSend" action="">
     <input type="text" name="message" />
+    <button class="sendButton"><img src="{% static 'images/send.png'%}" id="sendIcon" alt=""></button>
   </form>
 
 </section>

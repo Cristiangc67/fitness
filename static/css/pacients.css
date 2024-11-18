@@ -6,13 +6,27 @@
 .clients-container {
   width: 50vw;
   overflow-y: auto;
-  padding-top: 2em;
+  padding: 2em 4em;
   margin: 0 auto 100px auto;
-  background-color: brown;
+  background-color: rgb(214, 214, 214);
   height: 90%;
+  border-radius: 1.5em;
 }
 .search-pacients {
+  font-size: 1.5em;
+  display: flex;
   margin: 0 0 2em 0;
+  background-color: rgb(191, 190, 190);
+  padding: 1em 2em;
+  gap: 2em;
+  border-radius: 0.7em;
+}
+
+.search-pacients button {
+  border-radius: 1.5em;
+  background-color: #444268;
+  padding: 0.6em 1em;
+  color: white;
 }
 .client-item {
   background-color: #444268;
@@ -49,4 +63,8 @@
 .chat-icon {
   width: 4em;
   height: 4em;
+}
+.buttons-container {
+  display: flex;
+  gap: 1em;
 }
