@@ -15,7 +15,9 @@
       </div>
       {% if cliente.conversacion %}
       <div class="buttons-container">
-        <a href="{% url 'sugerir-plan' cliente.pk %}" class="chat-icon-container"></a>
+        <a href="{% url 'sugerir-plan' cliente.pk %}" class="chat-icon-container">
+          <img src="{% static 'images/food.png' %}" class="chat-icon" alt="" />
+        </a>
 
         <a href="{% url 'chatTest' cliente.conversacion.id %}" class="chat-icon-container">
           <img src="{% static 'images/chat.png' %}" class="chat-icon" alt="" />

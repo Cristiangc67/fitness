@@ -14,7 +14,7 @@
 
             {% if user_logged_in.id == profile_user.id %}
             <a class="button-pacients" href={% url 'editar_perfil' user.id %}>editar perfil</a>
-            <a href="{% url 'cliente-chat' perfil.pk %}" class="btn btn-primary">Ir al Chat con tu Médico</a>
+            <a href="{% url 'cliente-chat' perfil.pk %}" class="button-pacients">Ir al Chat con tu Médico</a>
             {% endif %}
         </div>
 
