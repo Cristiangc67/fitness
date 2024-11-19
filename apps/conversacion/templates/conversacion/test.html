@@ -8,15 +8,20 @@
 
   <div id="messages" class="messages-container">
     {% for msg in messages %}
-    <div
+    {% if not msg.delete %}
+    <div data-message-id="{{ msg.id }}"
       class="message-container {% if msg.sender.id == user.id %} sender {% elif msg.sender.id != user.id %} receiver {% endif %}">
       <div
         class="message {% if msg.sender.id == user.id %} message-sender {% elif msg.sender.id != user.id %} message-receiver {% endif %}">
         <strong>{{ msg.sender.username }}</strong>
         <p>{{ msg.message }}</p>
         ({{msg.created }})
+        {% if msg.sender.id == user.id %}
+        <button class="delete-message btn btn-danger" data-message-id="{{ msg.id }}">Eliminar</button>
+        {% endif %}
       </div>
     </div>
+    {% endif %}
     {% endfor %}
   </div>
   <form id="form" class="formSend" action="">
