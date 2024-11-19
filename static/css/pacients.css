@@ -1,10 +1,10 @@
 .clients-section {
-  width: 100vw;
+  width: 99vw;
   height: 75vh;
 }
 
 .clients-container {
-  width: 50vw;
+  width: 100vw;
   overflow-y: auto;
   padding: 2em 4em;
   margin: 0 auto 100px auto;
@@ -15,6 +15,7 @@
 .search-pacients {
   font-size: 1.5em;
   display: flex;
+  flex-direction: column;
   margin: 0 0 2em 0;
   background-color: rgb(191, 190, 190);
   padding: 1em 2em;
@@ -25,7 +26,7 @@
 .search-pacients button {
   border-radius: 1.5em;
   background-color: #444268;
-  padding: 0.6em 1em;
+  padding: 0.3em 0.5em;
   color: white;
 }
 .client-item {
@@ -47,8 +48,8 @@
   color: white;
 }
 .chat-icon-container {
-  width: 5.5em;
-  height: 5.5em;
+  width: 3.5em;
+  height: 3.5em;
   background-color: #26253a;
   display: flex;
   justify-content: center;
@@ -61,15 +62,75 @@
   background-color: #9b97e6;
 }
 .chat-icon {
-  width: 4em;
-  height: 4em;
+  width: 2em;
+  height: 2em;
 }
 .buttons-container {
   display: flex;
   gap: 1em;
+  align-items: center;
 }
 
 .icon-alphabet {
   width: 1.5em;
   height: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .clients-container {
+    width: 100vw;
+  }
+
+  .chat-icon {
+    width: 3em;
+    height: 3em;
+  }
+  .chat-icon-container {
+    width: 5.5em;
+    height: 5.5em;
+  }
+  .search-pacients button {
+    padding: 0.3em 0.5em;
+  }
+}
+@media (min-width: 1024px) {
+  .clients-container {
+    width: 90vw;
+  }
+  .chat-icon {
+    width: 4em;
+    height: 4em;
+  }
+  .chat-icon-container {
+    width: 5.5em;
+    height: 5.5em;
+  }
+  .search-pacients {
+    flex-direction: row;
+  }
+  .search-pacients button {
+    padding: 0.6em 1em;
+  }
+}
+@media (min-width: 1280px) {
+  .clients-container {
+    width: 75vw;
+  }
+  .chat-icon {
+    width: 4em;
+    height: 4em;
+  }
+  .chat-icon-container {
+    width: 5.5em;
+    height: 5.5em;
+  }
+}
+@media (min-width: 1536px) {
+  .clients-container {
+    width: 80vw;
+  }
+  .chat-icon {
+    width: 4em;
+    height: 4em;
+  }
 }

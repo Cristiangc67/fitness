@@ -74,7 +74,7 @@ class RegisterClientView(CreateView):
         cliente = form.save()
 
         # Lógica para asignar el plan de alimentación según las condiciones del cliente
-        if not cliente.plan_alimentacion_id:
+        if not cliente.plan_alimentacion:
 
             if cliente.vegetarian:
                 plan = 1
@@ -86,8 +86,8 @@ class RegisterClientView(CreateView):
             else:
                 plan = 3
 
-            cliente.plan_alimentacion_id = plan
-            cliente.plan_ejercicio_id = 1
+            cliente.plan_alimentacion = plan
+
             cliente.save()
             # Redirigir a la página de login o a la página deseada
         return response

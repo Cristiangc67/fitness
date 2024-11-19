@@ -20,6 +20,7 @@
     {% endfor %}
   </div>
   <form id="form" class="formSend" action="">
+    {% csrf_token %}
     <input type="text" name="message" />
     <button class="sendButton"><img src="{% static 'images/send.png'%}" id="sendIcon" alt=""></button>
   </form>

@@ -5,7 +5,8 @@
     <form method="get" class="search-pacients" action="{% url 'medico-pacientes' request.user.pk %}">
       <input type="text" name="search" placeholder="Buscar paciente..." value="{{ search_query }}" />
       <button type="submit">Buscar</button>
-      <button type="submit" name="ordenar" value="alfabetico">
+      <button type="submit" name="ordenar"
+        value="{% if request.GET.ordenar == 'alfabetico' %}false{% else %}alfabetico{% endif %}">
         <img src="{% static 'images/alphabet.png' %}" class="icon-alphabet">
       </button>
     </form>
@@ -17,7 +18,10 @@
         <p>{{ cliente.email }}</p>
       </div>
       {% if cliente.conversacion %}
-      <div class="buttons-container">
+      <div class="buttons-container ">
+        <a href="{% url 'perfil' cliente.pk %}" class="chat-icon-container">
+          <img src="{% static 'images/profile.png' %}" class="chat-icon" alt="" />
+        </a>
         <a href="{% url 'sugerir-plan' cliente.pk %}" class="chat-icon-container">
           <img src="{% static 'images/food.png' %}" class="chat-icon" alt="" />
         </a>

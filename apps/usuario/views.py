@@ -14,8 +14,7 @@ from django.db.models import Q
 from django.core.exceptions import PermissionDenied
 from django.db.models import Count
 from .forms.profileForm import SugerenciaPlanForm
-from apps.planAlimentacion.models import PlanAlimentacion
-from apps.planEjercicio.models import PlanEjercicio
+
 from django.urls import reverse_lazy
 from django.db.models.functions import Lower
 
@@ -127,6 +126,9 @@ class PacientsView(MedicoRequiredMixin, ListView):
         if ordenar == "alfabetico":
             clientes = clientes.order_by(Lower("name"), Lower("last_name"))
             print("ordenados", clientes)
+        elif ordenar == "false" or not ordenar:
+
+            pass
 
         for cliente in clientes:
             cliente.conversacion = Conversacion.objects.filter(
@@ -181,6 +183,11 @@ class SugerirPlanView(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = "cliente_pk"
     success_url = reverse_lazy("medico-pacientes")
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["cliente"] = self.object  # Pasar el cliente actual
+        return kwargs
+
     def get_success_url(self):
         return reverse_lazy("medico-pacientes", kwargs={"pk": self.request.user.pk})
 
@@ -190,14 +197,6 @@ class SugerirPlanView(LoginRequiredMixin, UpdateView):
         user = self.request.user
         context[user] = user
         cliente = self.get_object()
-
-        context["cliente"] = cliente
-        context["planes_alimentacion"] = PlanAlimentacion.objects.all()
-        context["planes_ejercicio"] = PlanEjercicio.objects.all()
-
-        context["planes_alimentacion"] = PlanAlimentacion.objects.all()
-        context["planes_ejercicio"] = PlanEjercicio.objects.all()
-
         context["cliente"] = cliente
         return context
 
