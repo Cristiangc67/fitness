@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}{% load static %} {% block content %}
+<section class="profileUser">
+    <div class="profile-details">
+        <div class="banner-background"></div>
+        <div class="user-infocontainer">
+            <div class="user-iconcontainer">
+                <img {% if profile_user.medico %} src="{% static 'images/usericon-blue.png'%}" {% elif
+                    profile_user.cliente %} src="{% static 'images/usericon-green.png'%}" {%endif %} class="user-icon"
+                    alt="" />
+            </div>
+            <div class="user-namescontainer">
+                <h2 class="user-fullname">{{profile_user.name}} {{profile_user.last_name}}</h2>
+                <h4 class="user-username">{{profile_user.username}}</h4>
+                <p> {{profile_user.email}}</p>
+            </div>
+
+            {% if user_logged_in.id == profile_user.id %}
+            <a class="button-pacients" href={% url 'medico-pacientes' profile_user.id %}>Lista de Pacientes</a>
+            <a class="button-pacients" href={% url 'editar_perfil' user.id %}>editar perfil</a>
+            {% endif %}
+        </div>
+
+        <div class="text-center">
+            <label for="specialty">Especialidad</label>
+            <p id="specialty">{{profile_user.specialty}}</p>
+        </div>
+        {% if profile_user.previous_experience%}
+        <div class="text-center">
+            <label for="previous">Experiencia Previa</label>
+            <p id="previous">{{profile_user.previous_experience}}</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</section>
+{%endblock%}

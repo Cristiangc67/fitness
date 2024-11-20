@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pagina</title>
+  </head>
+  <body>
+    <h2>LISTA DE MEDICOS ACTIVOS</h2>
+    {% for medico in medicos %}
+    <p>{{medico.name}} {{medico.last_name}}</medico> </p>
+    <p>Nro de matricula: {{medico.license_number}}</p>
+    <p>{{medico.specialty}}</p>
+    <p>----------------------------</p>
+    {% endfor %}
+  </body>
+</html>

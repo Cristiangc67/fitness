@@ -1,0 +1,105 @@
+.margin-top {
+  margin-top: 100px;
+}
+.chat {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.messages-container {
+  width: 99vw;
+  height: 45em;
+  margin: 0 auto;
+  overflow-y: auto;
+  background-color: rgb(214, 214, 214);
+  padding: 1em 2em;
+  border-radius: 1em 1em 0 0;
+}
+.message-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+}
+.sender {
+  justify-content: end;
+}
+.receiver {
+  justify-content: start;
+}
+.message {
+  color: white;
+  margin: 1em;
+  padding: 1em 2em;
+  width: fit-content;
+  border-radius: 1.5em;
+}
+.message-sender {
+  background-color: #26253a;
+}
+.message-receiver {
+  background-color: gray;
+}
+.message p {
+  color: white;
+}
+.formSend {
+  align-content: center;
+  display: flex;
+  gap: 1em;
+  width: 99vw;
+  background-color: #444268;
+  padding: 2em 2em 2.5em 2em;
+  margin-bottom: 2em;
+  border-radius: 0 0 1em 1em;
+}
+.sendButton {
+  border-radius: 100%;
+  background: none;
+  border: none;
+  transition: all 0.5s;
+}
+#sendIcon {
+  padding: 0.5em;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 100%;
+  background-color: rebeccapurple;
+}
+.sendButton:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .messages-container {
+    width: 50vw;
+  }
+  .formSend {
+    width: 50vw;
+  }
+}
+@media (min-width: 1024px) {
+  .messages-container {
+    width: 50vw;
+  }
+  .formSend {
+    width: 50vw;
+  }
+}
+@media (min-width: 1280px) {
+  .messages-container {
+    width: 50vw;
+  }
+  .formSend {
+    width: 50vw;
+  }
+}
+@media (min-width: 1536px) {
+  .messages-container {
+    width: 30vw;
+  }
+  .formSend {
+    width: 30vw;
+  }
+}

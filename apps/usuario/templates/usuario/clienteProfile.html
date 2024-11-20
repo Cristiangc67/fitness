@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}{% load static %} {% block content %}
+<section class="profileUser">
+    <div class="profile-details">
+        <div class="banner-background"></div>
+        <div class="user-infocontainer">
+            <div class="user-iconcontainer">
+                <img src="{% static 'images/usericon-green.png'%}" class="user-icon" alt="" />
+            </div>
+            <div class="user-namescontainer">
+                <h2 class="user-fullname">{{profile_user.name}} {{profile_user.last_name}}</h2>
+                <h4 class="user-username">{{profile_user.username}}</h4>
+                <p> {{profile_user.email}}</p>
+            </div>
+
+            {% if user_logged_in.id == profile_user.id %}
+            <a class="button-pacients" href={% url 'editar_perfil' user.id %}>editar perfil</a>
+            <a href="{% url 'cliente-chat' perfil.pk %}" class="button-pacients">Ir al Chat con tu Médico</a>
+            {% endif %}
+        </div>
+
+        <div class="user-cardscontainer">
+            <div class="card-wh">
+                <img src="{% static 'images/height.png' %}" class="img-responsive" alt="" />
+                <p>{{profile_user.height}} cm</p>
+            </div>
+            <div class="card-wh">
+                <img src="{% static 'images/weight-scale.png' %}" class="img-responsive" alt="" />
+                <p>{{profile_user.weight}} kg</p>
+            </div>
+            {% if profile_user.vegetarian == 1 or profile_user.hypertension == 1 or profile_user.diabetic == 1 %}
+            <div class="card-wh">
+                {% if profile_user.vegetarian == 1 %}
+
+                <p>vegetariano</p>
+                {% endif%}
+                {% if profile_user.hypertension == 1 %}
+                <p>hipertension</p>
+                {% endif%}
+
+                {% if profile_user.diabetic == 1 %}
+                <p>diabetico</p>
+                {% endif%}
+            </div>
+            {% endif %}
+        </div>
+
+        {% if profile_user.others %}
+
+        <div class="card-other">
+            <h3>Otros</h3>
+            <p>
+                {{profile_user.others}}
+            </p>
+        </div>
+        {% endif %}
+    </div>
+
+</section>
+{%endblock%}

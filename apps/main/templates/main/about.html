@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+<!-- =========================
+    OVERVIEW SECTION   
+============================== -->
+<section id="overview" class="parallax-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <img
+          src="{% static 'images/overview-img.jpg' %}"
+          class="img-responsive"
+          alt="Overview"
+        />
+        <blockquote class="wow fadeInUp" data-wow-delay="1.9s">
+          Sabemos que cada persona es única, por eso ofrecemos consejos prácticos, herramientas efectivas y recursos motivadores para que logres tus metas de salud de manera sostenible y sin extremos.  Aquí se trata de encontrar un balance que te haga sentir bien, fuerte y lleno de energía todos los días.
+        </blockquote>
+      </div>
+
+      <div class="col-md-1"></div>
+
+      <div class="wow fadeInUp col-md-4 col-sm-12" data-wow-delay="1s">
+        <div class="overview-detail">
+          <h2>Sobre nosotros</h2>
+          <p>
+            En Active Balance, creemos que el bienestar es un equilibrio entre el cuerpo, la mente y el espíritu. Nuestra misión es ayudarte a transformar tu estilo de vida a través de una alimentación saludable y una rutina de ejercicio adaptada a tus necesidades.
+          </p>
+          
+          <a href="#trainer" class="btn btn-default smoothScroll"
+            >Let us begin</a
+          >
+        </div>
+      </div>
+
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</section>
+{%endblock%}

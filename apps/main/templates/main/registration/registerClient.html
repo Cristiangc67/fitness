@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+
+<form method="post" class="form">
+  {% csrf_token %}
+  <div class="form-header">
+    <h2>Registration Form</h2>
+  </div>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required />
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+
+  <label for="last_name">Last Name:</label>
+  <input type="text" id="last_name" name="last_name" required />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required />
+
+  <label for="weight">Peso (kg)</label>
+  <input type="text" id="weight" name="weight" required />
+
+  <label for="height">Altura (cm):</label>
+  <input type="text" id="height" name="height" required />
+
+  <div>
+    <label for="genero">Genero:</label>
+    {{ form.genre }}
+  </div>
+  <div>
+    <label for="hipertenso">Hipertenso:</label>
+    {{ form.hypertension }}
+  </div>
+  <div>
+    <label for="Diabetico">Diabetico:</label>
+    {{ form.diabetic }}
+  </div>
+  <div>
+    <label for="Vegetariano">Vegetariano:</label>
+    {{ form.vegetarian }}
+  </div>
+
+  <label for="otras_condiciones">Otras Condiciones</label>
+  <textarea id="otras_condiciones" name="others" rows="4"></textarea>
+
+  <input type="submit" value="Register" />
+  {% if form.errors %}
+  <p>{{ form.errors }}</p>
+  {% endif %}
+</form>
+{%endblock%}

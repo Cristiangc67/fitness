@@ -1,0 +1,40 @@
+{% extends "main/base.html" %} {% load static %} {% block content %}
+<section class=" chat margin-top">
+  {% if user_logged_in_id == conversation.client_id %}
+  <h1>{{doctor.name}} {{doctor.last_name}}</h1>
+  {% elif user_logged_in_id == conversation.doctor_id %}
+  <h1>{{client.name}} {{client.last_name}}</h1>
+  {% endif %}
+
+  <div id="messages" class="messages-container">
+    {% for msg in messages %}
+    {% if not msg.delete %}
+    <div data-message-id="{{ msg.id }}"
+      class="message-container {% if msg.sender.id == user.id %} sender {% elif msg.sender.id != user.id %} receiver {% endif %}">
+      <div
+        class="message {% if msg.sender.id == user.id %} message-sender {% elif msg.sender.id != user.id %} message-receiver {% endif %}">
+        <strong>{{ msg.sender.username }}</strong>
+        <p>{{ msg.message }}</p>
+        ({{msg.created }})
+        {% if msg.sender.id == user.id %}
+        <button class="delete-message btn btn-danger" data-message-id="{{ msg.id }}">Eliminar</button>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <form id="form" class="formSend" action="">
+    {% csrf_token %}
+    <input type="text" name="message" />
+    <button class="sendButton"><img src="{% static 'images/send.png'%}" id="sendIcon" alt=""></button>
+  </form>
+
+</section>
+<script>
+  const roomName = "{{ room_name }}";
+  const sender = "{{msg.sender.id}}"
+  const user_id = "{{user.id}}"
+</script>
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

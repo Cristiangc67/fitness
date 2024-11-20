@@ -1,4 +1,162 @@
-{% extends 'main/base.html' %} {% block content %}
-<h3>inicio</h3>
-<hr />
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+<!-- =========================
+    HOME SECTION   
+============================== -->
+<section id="home" class="parallax-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10 col-sm-12">
+        <h3 class="wow bounceIn" data-wow-delay="0.9s">Hola y bienvenidos</h3>
+        <h1 class="wow fadeInUp" data-wow-delay="1.6s">
+          Fitness<br />Profesional
+        </h1>
+        <a href="#overview" class="wow fadeInUp smoothScroll btn btn-default" data-wow-delay="2s">LEARN MORE</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+    TRAINER SECTION   
+============================== -->
+<section id="trainer" class="parallax-section">
+  <div class="container">
+    <div class="row">
+      <div class="wow fadeInUp col-md-12 col-sm-12" data-wow-delay="1.3s">
+        <h2>Nuestros Profesionales</h2>
+        <p>Contamos con un equipo altamente capacitado y comprometido.</p>
+      </div>
+
+      <div class="wow fadeInUp col-md-4 col-sm-6" data-wow-delay="1.9s">
+        <div class="trainer-thumb">
+          <img src="{% static 'images/trainer-img1.jpg'%}" class="img-responsive" alt="Trainer" />
+          <div class="trainer-overlay">
+            <div class="trainer-des">
+              <h2 class="text-primary">Jenny</h2>
+              <h3>Nutricionista</h3>
+              <ul class="social-icon">
+                <li>
+                  <a href="#" class="fa fa-facebook wow fadeInUp" data-wow-delay="1s"></a>
+                </li>
+                <li>
+                  <a href="#" class="fa fa-twitter wow fadeInUp" data-wow-delay="1.3s"></a>
+                </li>
+                <li>
+                  <a href="#" class="fa fa-behance wow fadeInUp" data-wow-delay="1.9s"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p>
+          Experta en dietas balanceadas y asesoramiento nutricional, comprometida con el bienestar y la prevención de
+          enfermedades.
+        </p>
+      </div>
+
+      <div class="wow fadeInUp col-md-4 col-sm-6" data-wow-delay="2s">
+        <div class="trainer-thumb">
+          <img src="{% static 'images/trainer-img2.jpg'%}" class="img-responsive" alt="Trainer" />
+          <div class="trainer-overlay">
+            <div class="trainer-des">
+              <h2 class="text-primary">Marry</h2>
+              <h3>Deportologa</h3>
+              <ul class="social-icon">
+                <li>
+                  <a href="#" class="fa fa-facebook wow fadeInUp" data-wow-delay="1s"></a>
+                </li>
+                <li>
+                  <a href="#" class="fa fa-twitter wow fadeInUp" data-wow-delay="1.3s"></a>
+                </li>
+                <li>
+                  <a href="#" class="fa fa-behance wow fadeInUp" data-wow-delay="1.9s"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p>
+          Profesional en medicina deportiva, con amplia experiencia en el tratamiento de lesiones y optimización del
+          rendimiento físico.
+        </p>
+      </div>
+
+      <div class="wow fadeInUp col-md-4 col-sm-6" data-wow-delay="2.3s">
+        <div class="trainer-thumb">
+          <img src="{% static 'images/trainer-img3.jpg'%}" class="img-responsive" alt="Trainer" />
+          <div class="trainer-overlay">
+            <div class="trainer-des">
+              <h2 class="text-primary">Olivia</h2>
+              <h3>Nutricionista</h3>
+              <ul class="social-icon">
+                <li>
+                  <a href="#" class="fa fa-facebook wow fadeInUp" data-wow-delay="1s"></a>
+                </li>
+                <li>
+                  <a href="#" class="fa fa-twitter wow fadeInUp" data-wow-delay="1.3s"></a>
+                </li>
+                <li>
+                  <a href="#" class="fa fa-behance wow fadeInUp" data-wow-delay="1.9s"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p>
+          Licenciada en nutrición, especializada en planes personalizados para mejorar la salud y bienestar de cada
+          paciente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+    TESTIMONIAL SECTION   
+============================== -->
+<section id="testimonial" class="parallax-section">
+  <div class="container">
+    <div class="row">
+      <!-- Testimonial Owl Carousel section
+			================================================== -->
+      <div id="owl-testimonial" class="owl-carousel">
+        <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+          <i class="fa fa-quote-left"></i>
+          <h3>
+            Gracias a los planes de alimentacion, he logrado mejorar mi salud y sentirme mucho más energizada. ¡Estoy
+            muy satisfecha!
+          </h3>
+          <h4>Sandar ( Fashion Designer )</h4>
+        </div>
+
+        <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+          <i class="fa fa-quote-left"></i>
+          <h3>
+            Mi experiencia con el equipo ha sido excelente. Me han ayudado a alcanzar mis objetivos de salud con gran
+            profesionalismo.
+          </h3>
+          <h4>James Job ( Social Assistant )</h4>
+        </div>
+
+        <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+          <i class="fa fa-quote-left"></i>
+          <h3>
+            Recibí una atención personalizada que me permitió mejorar mis hábitos alimenticios y rendir mejor en mis
+            actividades diarias.
+          </h3>
+          <h4>Mark Otto ( New Cyclist )</h4>
+        </div>
+
+        <div class="item col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 wow fadeInUp" data-wow-delay="0.6s">
+          <i class="fa fa-quote-left"></i>
+          <h3>
+            Los consejos que recibí fueron muy acertados y efectivos. Hoy me siento más saludable y motivado para seguir
+            cuidando mi cuerpo.
+          </h3>
+          <h4>David Moore ( Pro Boxer )</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {%endblock%}

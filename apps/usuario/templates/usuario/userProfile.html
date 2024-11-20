@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}{% load static %} {% block content %}
+<section class="profileUser">
+  <div class="profile-details">
+    <div class="banner-background"></div>
+    <div class="user-infocontainer">
+      <div class="user-iconcontainer">
+        <img {% if profile_user.medico %} src="{% static 'images/usericon-blue.png'%}" {% elif profile_user.cliente %}
+          src="{% static 'images/usericon-green.png'%}" {%endif %} class="user-icon" alt="" />
+      </div>
+      <div class="user-namescontainer">
+        <h2 class="user-fullname">{{profile_user.name}} {{profile_user.last_name}}</h2>
+        <h4 class="user-username">{{profile_user.username}}</h4>
+        <p> {{profile_user.email}}</p>
+      </div>
+
+      {% if user_logged_in.id == profile_user.id %}
+      {%if profile_user.medico %}
+
+      <a class="button-pacients" href={% url 'medico-pacientes' profile_user.id %}>Lista de Pacientes</a>
+      {% endif %}
+      <a class="button-pacients" href={% url 'editar_perfil' user.id %}>editar perfil</a>
+      {% endif %}
+    </div>
+    {%if profile_user.cliente %}
+    <div class="user-cardscontainer">
+      <div class="card-wh">
+        <img src="{% static 'images/height.png' %}" class="img-responsive" alt="" />
+        <p>192cm</p>
+      </div>
+      <div class="card-wh">
+        <img src="{% static 'images/weight-scale.png' %}" class="img-responsive" alt="" />
+        <p>90kg</p>
+      </div>
+      <div class="card-wh">
+        <p>vegetariano</p>
+        <p>hipertension</p>
+        <p>diabetico</p>
+      </div>
+    </div>
+    <div class="card-other">
+      <h3>Otros</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem itaque
+        obcaecati voluptatem minus consequatur a totam accusantium corrupti non
+        fuga consequuntur doloribus enim velit, accusamus sapiente sunt soluta
+        nesciunt vel?
+      </p>
+    </div>
+    {% endif %}
+    {%if profile_user.medico %}
+    <div class="flex">
+      <label for="specialty">Especialidad</label>
+      <p id="specialty">{{user.medico.specialty}}</p>
+    </div>
+    <div>
+      <label for="previous">Experiencia Previa</label>
+      <p id="previous">{{profile_user.medico.previous_experience}}</p>
+    </div>
+
+    {% endif %}
+  </div>
+
+</section>
+{%endblock%}
