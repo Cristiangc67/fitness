@@ -1,4 +1,6 @@
 # fitness
 
 fitness app backend-2024
-cd
+## Requerimientos
+pip install django
+python -m pip install -U 'channels[daphne]'
